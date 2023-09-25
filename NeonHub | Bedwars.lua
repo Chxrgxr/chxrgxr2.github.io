@@ -12,6 +12,7 @@ local info = Credits:NewSection("Player ip/roblox password :troll:")
 
 local Credit = Window:NewTab("Credits")
 local Credits = Credits:NewSection("important")
+local Credits = Credits:NewSection("developer lunaar and ")
 
 local  Main = Window:NewTab("Main")
 local Mains = Mains:NewSection("killaura/Velocity/etc")
@@ -26,9 +27,9 @@ local Utilities = Credits:NewSection("Animation hub/etc")
 
 Section:NewToggle("ToggleText", "ToggleInfo", function(state)
     if state then
-        print("Toggle On")
+        
     else
-        print("Toggle Off")
-    end
+        
+        end
 end)
 
