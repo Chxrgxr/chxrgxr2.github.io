@@ -50,7 +50,13 @@ local Section3 = Tab3:NewSection("Utility Section")
 
 --main
 
-Section1:NewButton("Player Name :"..Name, "Shows The Players Name", function()
+Section1:NewButton("Player Name :" ..Name, "Shows The Players Name", function()
+end)
+
+Section1:NewButton("Player DisplayName :" ..DisplayName, "Shows The Players DisplayName", function()
+end)
+
+Section1:NewButton("Player UserId :" ..UserId, "Shows The Players UserId", function()
 end)
 
 Section2:NewToggle("mc sound", "ToggleInfo", function(state)
