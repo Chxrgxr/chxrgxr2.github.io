@@ -1,3 +1,14 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Welcome!",
+    Text = "Welcome to Neon Hub | Da Hood!"
+})
+wait(2)
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Neon Hub | Da Hood",
+    Text = "Gui starting in 3s!"
+})
+wait(3)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Yopapa699/KavoUI/main/KavoUiLib"))()
 local Window = Library.CreateLib("Neon Hub | Da Hood", "DarkTheme")
 
@@ -89,3 +100,7 @@ end)
 MainSection:NewButton("Neon Hub | Bedwars", "Neon Hub, Bedwars edition script", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxrgxr/scripts/main/Universal%20%7C%20Bedwars.lua",true))()
 end)
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Neon Hub | Da Hood",
+    Text = "GUI Loaded! if not rejoin."
+})
