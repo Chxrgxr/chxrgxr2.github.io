@@ -25,7 +25,7 @@ local Utilities = Credits:NewSection("Animation hub/etc")
 
 --main
 
-Mains:NewToggle("mc sound", "ToggleInfo", function(state)
+Main:NewToggle("mc sound", "ToggleInfo", function(state)
     if state then
         spawn(function()
                 lplr.leaderstats.Bed:GetPropertyChangedSignal("Value"):Connect(yesyesbed)
@@ -68,3 +68,103 @@ Mains:NewToggle("mc sound", "ToggleInfo", function(state)
         end
 end)
 
+Main:NewToggle("ESP", "Show player", function(state)
+    if state then
+        spawn(function()
+                ESPFolder = Instance.new("Folder")
+                ESPFolder.Name = "ESPFolder"
+                ESPFolder.Parent = ScreenGuitwo
+                repeat
+                    task.wait()
+                    if (not espval) then break end
+                    for i,plr in pairs(game.Players:GetChildren()) do
+                        if ESPFolder:FindFirstChild(plr.Name) then
+                            thing = ESPFolder[plr.Name]
+                            thing.Visible = false
+                        else
+                            thing = Instance.new("ImageLabel")
+                            thing.BackgroundTransparency = 1
+                            thing.BorderSizePixel = 0
+                            thing.Image = getcustomassetthingylol("rektsky/assets/esppic.png")
+                            thing.Visible = false
+                            thing.Name = plr.Name
+                            thing.Parent = ESPFolder
+                            thing.Size = UDim2.new(0, 256, 0, 256)
+                        end
+                        
+                        if isAlive(plr) and plr ~= lplr and plr.Team ~= tostring(lplr.Team) then
+                            local rootPos, rootVis = cam:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position)
+                            local rootSize = (plr.Character.HumanoidRootPart.Size.X * 1200) * (cam.ViewportSize.X / 1920)
+                            local headPos, headVis = cam:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position + Vector3.new(0, 1 + (plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 and 2 or plr.Character.Humanoid.HipHeight), 0))
+                            local legPos, legVis = cam:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position - Vector3.new(0, 1 + (plr.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 and 2 or plr.Character.Humanoid.HipHeight), 0))
+                            rootPos = rootPos
+                            if rootVis then
+                                thing.Visible = rootVis
+                                thing.Size = UDim2.new(0, rootSize / rootPos.Z, 0, headPos.Y - legPos.Y)
+                                thing.Position = UDim2.new(0, rootPos.X - thing.Size.X.Offset / 2, 0, (rootPos.Y - thing.Size.Y.Offset / 2) - 36)
+                            end
+                        end
+                    end
+                until (not espval)
+            end)
+            game.Players.PlayerRemoving:connect(function(plr)
+                if ESPFolder:FindFirstChild(plr.Name) then
+                    ESPFolder[plr.Name]:Remove()
+                end
+            end)
+    else
+        ESPFolder:remove()
+            return
+    end
+end)
+
+Main:NewToggle("killaura", "ToggleInfo", function(state)
+    if state then
+        spawn(function()
+                if kauravalv2 and entity.isAlive then
+                    conectionkillauraV2 = RunService.RenderStepped:Connect(function(step)
+                        if not kauravalv2 then 
+                            return
+                        end
+                        if entity.isAlive then
+                            if (not isclone) then
+                                local mouse = game.Players.LocalPlayer:GetMouse()
+                                for i,v in pairs(game.Players:GetChildren()) do
+                                    if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+                                        local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                                        if mag <= 20 and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+                                            if v.Character:FindFirstChild("Head") then
+                                                game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged[landmineremote]:FireServer({
+                                                    ["invisibleLandmine"] = v.Character.Head                                        
+                                                })
+                                            end
+                                        end
+                                    end
+                                end 
+                            else
+                                local mouse = game.Players.LocalPlayer:GetMouse()
+                                for i,v in pairs(game.Players:GetChildren()) do
+                                    if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+                                        local mag = (v.Character.HumanoidRootPart.Position - clone.HumanoidRootPart.Position).Magnitude
+                                        if mag <= 20 and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+                                            if v.Character:FindFirstChild("Head") then
+                                                game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged[landmineremote]:FireServer({
+                                                    ["invisibleLandmine"] = v.Character.Head                                        
+                                                })
+                                            end
+                                        end
+                                    end
+                                end 
+                            end
+                        end
+                    end)
+                else
+                    conectionkillauraV2:Disconnect()
+                    return
+                end
+            end)
+
+            --this ends here
+
+            --utilitie
+            
