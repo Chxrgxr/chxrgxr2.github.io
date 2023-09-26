@@ -1,4 +1,26 @@
--- ths project is lead by Luna_salt and Unknown | 🎭#1693
+--[[ ths project is lead by Luna_salt and Unknown | 🎭#1693--]]
+
+if game.PlaceId == 6872265039 then
+  local players = game:GetService("Players")
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Notification!",
+    Text = "Welcome, " .. players.LocalPlayer.DisplayName,
+    Icon = "rbxthumb://type=AvatarHeadShot&id=" .. players.LocalPlayer.UserId .. "&w=180&h=180 true",
+    Duration = 5
+})
+  
+  wait(1)
+  
+  else 
+    local players = game:GetService("Players")
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Wrong Game!",
+    Text = "Wrong game stupid, " .. players.LocalPlayer.DisplayName,
+    Icon = "rbxthumb://type=AvatarHeadShot&id=" .. players.LocalPlayer.UserId .. "&w=180&h=180 true",
+    Duration = 5
+})
+  return
+end
 
 -- Library
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/RmLqTugH"))()
@@ -6,26 +28,32 @@ local Library = loadstring(game:HttpGet("https://pastebin.com/raw/RmLqTugH"))()
 -- Window
 local Window = Library.CreateLib("NEON HUB | BEDWARS", "Serpent")
 
+-- Functions
+local players = game:GetService("Players")
+local Name = players.LocalPlayer.Name
+local DisplayName = players.LocalPlayer.DisplayName
+local UserId = players.LocalPlayer.UserId
+
 --tabs
-local Welcome = Window:NewTab("Player info")
-local info = Credits:NewSection("Player ip/roblox password :troll:")
 
-local Credit = Window:NewTab("Credits")
-local Credits = Credits:NewSection("important")
-local Credits = Credits:NewSection("developer lunaar and ")
+local  Tab1 = Window:NewTab("Welcome")
 
-local  Main = Window:NewTab("Main")
-local Mains = Mains:NewSection("killaura/Velocity/etc")
+local Section1 = Tab1:NewSection("Info Section")
 
-local Utilitie = Window:NewTab("Utility")
-local Utilities = Credits:NewSection("Animation hub/etc")
+local Tab2 = Window:NewTab("Main")
 
---welcome
---it ends here
+local Section2 = Tab2:NewSection("Main Section ")
+
+local Tab3 = Window:NewTab("Utility")
+
+local Section3 = Tab3:NewSection("Utility Section")
 
 --main
 
-Main:NewToggle("mc sound", "ToggleInfo", function(state)
+Section1:NewButton("Player Name :"..Name, "Shows The Players Name", function()
+end)
+
+Section2:NewToggle("mc sound", "ToggleInfo", function(state)
     if state then
         spawn(function()
                 lplr.leaderstats.Bed:GetPropertyChangedSignal("Value"):Connect(yesyesbed)
@@ -68,7 +96,7 @@ Main:NewToggle("mc sound", "ToggleInfo", function(state)
         end
 end)
 
-Main:NewToggle("ESP", "Show player", function(state)
+Section2:NewToggle("ESP", "Show player", function(state)
     if state then
         spawn(function()
                 ESPFolder = Instance.new("Folder")
@@ -118,7 +146,7 @@ Main:NewToggle("ESP", "Show player", function(state)
     end
 end)
 
-Main:NewToggle("killaura", "ToggleInfo", function(state)
+Section2:NewToggle("killaura", "ToggleInfo", function(state)
     if state then
         spawn(function()
                 if kauravalv2 and entity.isAlive then
@@ -161,8 +189,10 @@ Main:NewToggle("killaura", "ToggleInfo", function(state)
                 else
                     conectionkillauraV2:Disconnect()
                     return
-                end
-            end)
+                 end
+               end)
+            end
+          end)
 
             --this ends here
 
