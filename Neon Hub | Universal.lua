@@ -26,12 +26,13 @@ OpenClose.BackgroundTransparency = 0.200
 OpenClose.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
 OpenClose.Size = UDim2.new(0, 100, 0, 100)
 OpenClose.Font = Enum.Font.Fantasy
-OpenClose.Text = "NEON HUB"
-OpenClose.TextColor3 = Color3.fromRGB(75,0,130)
+OpenClose.Text = "NEON"
+OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
 OpenClose.TextSize = 26.000
 OpenClose.MouseButton1Click:connect(function()
-	 Library:ToggleUI()
+	Library:ToggleUI()
 end)
+
 
 local Main = Window:NewTab("Universal")
 local MainSection = Main:NewSection("Universal Script here:")
