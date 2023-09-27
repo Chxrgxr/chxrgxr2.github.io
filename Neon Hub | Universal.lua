@@ -210,6 +210,7 @@ getgenv().DontShootThesePeople = {
  
 	"AimLockPsycho";
 	"JakeTheMiddleMan";
+	"THESTAR6789";
  
 }
 
