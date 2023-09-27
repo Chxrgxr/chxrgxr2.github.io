@@ -12,6 +12,27 @@ wait(5)
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F" ,true))()
 local Window = Library.CreateLib("Neon Hub | Universal", "DarkTheme")
 
+local MainToggle = Instance.new("ScreenGui")
+local OpenCloseGUI = Instance.new("ScreenGui")
+local OpenClose = Instance.new("TextButton")
+
+OpenCloseGUI.Name = "close/open"
+OpenCloseGUI.Parent = game.CoreGui
+
+OpenClose.Name = "Open/Close"
+OpenClose.Parent = OpenCloseGUI
+OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+OpenClose.BackgroundTransparency = 0.200
+OpenClose.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
+OpenClose.Size = UDim2.new(0, 100, 0, 100)
+OpenClose.Font = Enum.Font.Fantasy
+OpenClose.Text = "NEON"
+OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
+OpenClose.TextSize = 26.000
+OpenClose.MouseButton1Click:connect(function()
+	Library:ToggleUI()
+end)
+
 local Main = Window:NewTab("Universal")
 local MainSection = Main:NewSection("Universal Script here:")
 
@@ -36,7 +57,25 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarWareOP/Animation
 end)
 
 MainSection:NewButton("Fake Limiteds", "The desc should be straight forward", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/fakelimitedsv2/main/fakelimitedsv2", true))()
+getgenv().keytoclick = "V"
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = keytoclick
+tool.Activated:connect(function()
+    local vim = game:service("VirtualInputManager")
+vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+wait(0.2)
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "Limiteds Script";
+Title = "Loaded!";
+Duration = 5;
+});
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxHackerProLuaStuff/avatar-editor-thing/main/headless.lua"))()
 end)
 
 MainSection:NewButton("Shaders", "Shaders script for any game", function()
