@@ -344,8 +344,6 @@ bedwars.ClientHandler:Get("DragonBreath"):SendToServer({player = lplr})
 end)
     
 MainSection:NewButton("Party Popper", "Party Popper spammer", function()
-local Party = 
-Party =
 task.wait(0.3)
 	useAbility("PARTY_POPPER")
 end)
