@@ -337,15 +337,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XStormDeveloper/Auror
 end)
 
 MainSection:NewButton("Dragon Breath", "Dragon breath real!", function()
-local Dragon Breath =  
-Dragon Breath = 
-task.wait(0.3)
-bedwars.ClientHandler:Get("DragonBreath"):SendToServer({player = lplr})
+game:GetService('RunService').RenderStepped:Connect(function()
+game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.DragonBreath:FireServer(" ")
 end)
     
 MainSection:NewButton("Party Popper", "Party Popper spammer", function()
-task.wait(0.3)
-	useAbility("PARTY_POPPER")
+game:GetService('RunService').RenderStepped:Connect(function()
+game:GetService("ReplicatedStorage"):FindFirstChild("events-@easy-games/game-core:shared/game-core-networking@getEvents.Events").useAbility:FireServer("PARTY_POPPER")
 end)
     end
 
