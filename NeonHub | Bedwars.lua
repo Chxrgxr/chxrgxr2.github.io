@@ -203,4 +203,8 @@ Section2:NewToggle("killaura", "ToggleInfo", function(state)
             --this ends here
 
             --utilitie
-            
+
+Section3:NewButton("Party Popper", "fe party popper lol", function()
+game:GetService('RunService').RenderStepped:Connect(function()
+game:GetService("ReplicatedStorage"):FindFirstChild("events-@easy-games/game-core:shared/game-core-networking@getEvents.Events").useAbility:FireServer("PARTY_POPPER")
+end)
