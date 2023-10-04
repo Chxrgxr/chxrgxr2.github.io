@@ -335,16 +335,6 @@ end)
 MainSection:NewButton("Aurora", "Needs vape loaded", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/XStormDeveloper/AuroraForRoblox/main/lua", true))()
 end)
-
-MainSection:NewButton("Dragon Breath", "Dragon breath real!", function()
-game:GetService('RunService').RenderStepped:Connect(function()
-game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.DragonBreath:FireServer(" ")
-end)
-    
-MainSection:NewButton("Party Popper", "Party Popper spammer", function()
-game:GetService('RunService').RenderStepped:Connect(function()
-game:GetService("ReplicatedStorage"):FindFirstChild("events-@easy-games/game-core:shared/game-core-networking@getEvents.Events").useAbility:FireServer("PARTY_POPPER")
-end)
     end
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
