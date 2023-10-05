@@ -1,0 +1,11 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Badwars V2", "DarkTheme")
+
+local Tab1 = Window:NewTab("Combat")
+local Section1 = Tab1:NewSection("Combat")
+
+local Tab2 = Window:NewTab("Utilities")
+local Section2 = Tab2:NewSection("Utilities")
+
+local Tab3 = Window:NewTab("Script Hubs")
+local Section3 = Tab3:NewSection("Script Hubs")
