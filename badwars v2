@@ -69,6 +69,6 @@ Section3:NewSlider("WalkSpeed", "WalkSpeed", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
  
-Tab3Section:NewSlider("JumpPower", "Changes how fast you jump.", 250, 16, function(s)
+Section3:NewSlider("JumpPower", "Changes how fast you jump.", 250, 16, function(s)
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
