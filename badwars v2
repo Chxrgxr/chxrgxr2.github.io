@@ -396,3 +396,20 @@ local specialpos = (workspace.MapCFrames:FindFirstChild("center") and workspace.
         end
 end)
 
+Section4:NewButton("Infinity Hub", "Bedwars", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/bojoexploitz/yooo/main/itsobfuscated/InfinityHubTooOP", true))()
+end)
+
+Section4:NewButton("Jn HH v10 (bedwars)", "bedwars script", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YourLocalNzi/Ye/main/JNO10"))()
+end)
+
+Section4:NewButton("Vape 4 + Inf Jumps", "Op bedwars script", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+
+local InfiniteJumpEnabled = true game:GetService("UserInputService").JumpRequest:connect(function()
+if InfiniteJumpEnabled then
+game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+end
+end)
+end)
