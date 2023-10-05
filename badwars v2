@@ -80,6 +80,7 @@ Section3:NewSlider("WalkSpeed", "WalkSpeed", 30, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
  
-Section3:NewSlider("JumpPower", "Changes how fast you jump", 100, 0, function(a)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = a
+Section4:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(color)
+    print(TextColor)
+    -- Second argument is the default color
 end)
