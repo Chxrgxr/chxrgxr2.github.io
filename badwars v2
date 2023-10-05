@@ -80,7 +80,6 @@ Section3:NewSlider("WalkSpeed", "WalkSpeed", 30, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
  
-Section4:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(color)
+Section4:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(TextColor)
     print(TextColor)
-    -- Second argument is the default color
 end)
