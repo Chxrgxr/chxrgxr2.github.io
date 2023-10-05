@@ -81,5 +81,5 @@ Section3:NewSlider("WalkSpeed", "WalkSpeed", 30, 0, function(s)
 end)
  
 Section4:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(TextColor)
-    print(TextColor)
+TextColor = print(TextColor)
 end)
