@@ -1,64 +1,103 @@
-OrionLib:MakeNotification({
-	Name = "Script Door | Bedwars",
-	Content = "loading scripts...",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F", true))()
+local Window = Library.CreateLib("Storm X", "DarkTheme")
 
-wait(4)
+local Tab1 = Window:NewTab("Main")
+local Tab2 = Window:NewTab("Combat")
+local Tab3 = Window:NewTab("Other")
+local plrname = plr.Name
+local plrage = plr.AccountAge
+local plrid = plr.UserId
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Script Door | Bedwars", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Section1 = Tab1:NewSection("Information")
 
-local Tab1 = Window:MakeTab({
-	Name = "Combat",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+local Section1 = Tab1:NewSection("Welcome " ..plrname.. "!")
+local Section1 = Tab1:NewSection("Player ID = "..game.Players.LocalPlayer.UserId ..".")
+local Section1 = Tab1:NewSection("Account Age = "..game.Players.LocalPlayer.AccountAge..".")
 
-local Section1 = Tab1:AddSection({
-	Name = "Combat Scripts"
-})
-
-Tab1:AddButton({
-	Name = "Kill Aura",
-	Callback = function()
-        local player = game:GetService("Players")
+Section2:NewToggle("Kill-Aura", "hit reach", function(s)
+    if s then
         local player = game:GetService("Players")
         local lplr = player.LocalPlayer
         local cam = workspace.CurrentCamera
         local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
         local SwordCont = KnitClient.Controllers.SwordController
-        
         local aura = false
-        local DistVal = {["Value"] = 50}
-        
+        local DistVal = {["Value"] = 100}
         local connection
         
         function Aura()
-            local closestPlayer = nil
-            local closestDistance = math.huge
-            
             for i,v in pairs(game.Players:GetChildren()) do
-                if v ~= lplr and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
-                    local mag = (v.Character.HumanoidRootPart.Position - lplr.Character.HumanoidRootPart.Position).Magnitude
-                    if mag <= DistVal["Value"] and v.Team ~= lplr.Team and v.Character:FindFirstChild("Humanoid") then
-                        if v.Character.Humanoid.Health > 0 and mag < closestDistance then
-                            closestPlayer = v
-                            closestDistance = mag
+                if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+                    local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                    if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
+                        if v.Character.Humanoid.Health > 0 then
+                            aura = true
+                            SwordCont:swingSwordAtMouse()
                         end
                     end
                 end
-            end
-            
-            if closestPlayer then
-                aura = true
-                SwordCont:swingSwordAtMouse()
             end
         end
         
         connection = game:GetService("RunService").Stepped:connect(function()
             Aura()
         end)
-  	end    
-})
+    else
+        if connection then
+            connection:Disconnect()
+        end
+    end
+end)
+
+Section3:NewToggle("Reach", "Extend your attack range", function(uwu)
+	if uwu then
+		CombatConstant.RAYCAST_SWORD_CHARACTER_DISTANCE = (reachval["Value"] - 0.0001)
+	else
+		CombatConstant.RAYCAST_SWORD_CHARACTER_DISTANCE = 14.4
+	end
+end)
+
+Section:NewToggle("Anti-Void", "bounce rel", function(state)
+    if state then
+        antivoidp = Instance.new("Part", workspace)
+        antivoidp.Name = "AntiVoid"
+        antivoidp.CanCollide = true
+        antivoidp.Size = Vector3.new(2048, 1, 2048)
+        antivoidp.Anchored = true
+        antivoidp.Transparency = 0.55
+        antivoidp.Material = Enum.Material.Neon
+        antivoidp.Color = Color3.fromRGB(255,0,0)
+        antivoidp.Position = Vector3.new(0, 23.5, 0)
+        antivoidp.Touched:connect(function(touchedvoid)
+            if touchedvoid.Parent:FindFirstChild("Humanoid") and touchedvoid.Parent.Name == lplr.Name then
+                lplr.Character.Humanoid.Jump = true
+                lplr.Character.Humanoid:ChangeState("Jumping")
+            end
+        end)
+    else
+        if antivoidp then
+            antivoidp:Remove()
+        end
+    end
+end)
+
+Section3:NewToggle("ShopBypass", "Bypass rel", function(state) 
+  if state then
+   if (bypassstpidshoptiers) then
+            for i,v in pairs(shopthingyshopshop) do
+                oldtiered = oldtiered or v.tiered
+                oldnexttier = oldnexttier or v.nextTier
+            end
+            for i,v in pairs(shopthingyshopshop) do
+                v.tiered = nil
+                v.nextTier = nil
+            end
+        else
+            for i,v in pairs(shopthingyshopshop) do
+                v.tiered = oldtiered
+                v.nextTier = oldnexttier
+            end
+        end
+    end
+end)
+
