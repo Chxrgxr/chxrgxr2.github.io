@@ -1,3 +1,12 @@
+OrionLib:MakeNotification({
+	Name = "Script Door | Bedwars",
+	Content = "loading scripts...",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+wait(4)
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Script Door | Bedwars", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
@@ -8,14 +17,7 @@ local Tab1 = Window:MakeTab({
 })
 
 local Section1 = Tab1:AddSection({
-	Name = "Section"
-})
-
-OrionLib:MakeNotification({
-	Name = "Script Door | Bedwars",
-	Content = "loading scripts...",
-	Image = "rbxassetid://4483345998",
-	Time = 5
+	Name = "Combat Scripts"
 })
 
 Tab1:AddButton({
