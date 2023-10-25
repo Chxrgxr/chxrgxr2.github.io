@@ -1,1 +1,62 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Script Door | Bedwars", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+local Tab1 = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section1 = Tab1:AddSection({
+	Name = "Section"
+})
+
+OrionLib:MakeNotification({
+	Name = "Script Door | Bedwars",
+	Content = "loading scripts...",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+Tab1:AddButton({
+	Name = "Kill Aura",
+	Callback = function()
+        local player = game:GetService("Players")
+        local player = game:GetService("Players")
+        local lplr = player.LocalPlayer
+        local cam = workspace.CurrentCamera
+        local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+        local SwordCont = KnitClient.Controllers.SwordController
+        
+        local aura = false
+        local DistVal = {["Value"] = 50}
+        
+        local connection
+        
+        function Aura()
+            local closestPlayer = nil
+            local closestDistance = math.huge
+            
+            for i,v in pairs(game.Players:GetChildren()) do
+                if v ~= lplr and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+                    local mag = (v.Character.HumanoidRootPart.Position - lplr.Character.HumanoidRootPart.Position).Magnitude
+                    if mag <= DistVal["Value"] and v.Team ~= lplr.Team and v.Character:FindFirstChild("Humanoid") then
+                        if v.Character.Humanoid.Health > 0 and mag < closestDistance then
+                            closestPlayer = v
+                            closestDistance = mag
+                        end
+                    end
+                end
+            end
+            
+            if closestPlayer then
+                aura = true
+                SwordCont:swingSwordAtMouse()
+            end
+        end
+        
+        connection = game:GetService("RunService").Stepped:connect(function()
+            Aura()
+        end)
+  	end    
+})
