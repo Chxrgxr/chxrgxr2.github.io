@@ -1,16 +1,16 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Welcome!",
-    Text = "Welcome to Neon Hub | Da Hood!"
+    Text = "Welcome to Script Door | Da Hood!"
 })
 wait(2)
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Neon Hub | Da Hood",
+    Title = "Script Door | Da Hood",
     Text = "Gui starting in 3s!"
 })
 wait(3)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Yopapa699/KavoUI/main/KavoUiLib"))()
-local Window = Library.CreateLib("Neon Hub | Da Hood", "DarkTheme")
+local Window = Library.CreateLib("Script Door | Da Hood", "DarkTheme")
 
 --MAIN
 
@@ -89,18 +89,7 @@ MainSection:NewButton("Auto-Piano", "best auto piano script", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Madness676/3.2Lol/main/AutoPiano3-2.lua", true))()
 end)
 
---OTHER GUI's
-
-local Main = Window:NewTab("Neon Hub")
-local MainSection = Tab:NewSection("Other GUI's For Neon Hub")
-
-MainSection:NewButton("Neon Hub | Startup GUI", "Beginning Gui for Neon Hub", function()
-end)
-
-MainSection:NewButton("Neon Hub | Bedwars", "Neon Hub, Bedwars edition script", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxrgxr/scripts/main/Universal%20%7C%20Bedwars.lua",true))()
-end)
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Neon Hub | Da Hood",
+    Title = "Script Door | Da Hood",
     Text = "GUI Loaded! if not rejoin."
 })
