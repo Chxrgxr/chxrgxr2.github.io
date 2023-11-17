@@ -1,37 +1,16 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Welcome!",
-    Text = "Welcome to Neon Hub!"
+    Text = "Welcome to Script Door!"
 })
 wait(2)
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Starting GUI",
-    Text = "Be sure to join .gg/ZuHJf7CyM3"
+    Text = "Loading..."
 })
 wait(5)
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F" ,true))()
-local Window = Library.CreateLib("Neon Hub | Universal", "DarkTheme")
-
-local MainToggle = Instance.new("ScreenGui")
-local OpenCloseGUI = Instance.new("ScreenGui")
-local OpenClose = Instance.new("TextButton")
-
-OpenCloseGUI.Name = "close/open"
-OpenCloseGUI.Parent = game.CoreGui
-
-OpenClose.Name = "Open/Close"
-OpenClose.Parent = OpenCloseGUI
-OpenClose.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-OpenClose.BackgroundTransparency = 0.200
-OpenClose.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
-OpenClose.Size = UDim2.new(0, 100, 0, 100)
-OpenClose.Font = Enum.Font.Fantasy
-OpenClose.Text = "NEON"
-OpenClose.TextColor3 = Color3.fromRGB(75, 0, 130)
-OpenClose.TextSize = 26.000
-OpenClose.MouseButton1Click:connect(function()
-	Library:ToggleUI()
-end)
+local Window = Library.CreateLib("Script Door | Universal", "DarkTheme")
 
 local Main = Window:NewTab("Universal")
 local MainSection = Main:NewSection("Universal Script here:")
@@ -210,7 +189,6 @@ getgenv().DontShootThesePeople = {
  
 	"AimLockPsycho";
 	"JakeTheMiddleMan";
-	"THESTAR6789";
  
 }
 
@@ -338,6 +316,6 @@ end)
     end
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Neon Hub",
-    Text = "Neon Hub is now fully executed."
+    Title = "Script Door",
+    Text = "Script Door is now fully executed."
 })
