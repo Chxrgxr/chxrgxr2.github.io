@@ -1,16 +1,11 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "Welcome!",
-    Text = "Welcome to Script Door!"
-})
-wait(2)
-game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Starting GUI",
-    Text = "Loading..."
+    Text = "Starting Lunight.."
 })
 wait(5)
 
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F" ,true))()
-local Window = Library.CreateLib("Script Door | Universal", "DarkTheme")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxrgxr/UI-LIB/main/UIlib.lua" ,true))()
+local Window = Library.CreateLib("lunight", "DarkTheme")
 
 local Main = Window:NewTab("Universal")
 local MainSection = Main:NewSection("Universal Script here:")
@@ -189,7 +184,7 @@ getgenv().DontShootThesePeople = {
  
 	"AimLockPsycho";
 	"JakeTheMiddleMan";
- 
+        "chxrgxr01"; --am untouchble xd
 }
 
 local SilentAim = true
@@ -306,16 +301,12 @@ MainSection:NewButton("Vape V4 original", "Vape V4 original", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 end)
     
-MainSection:NewButton("SmokeWare", "SmokeWare config NEED VAPE LOADED", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Swoptt/Scripts/main/SMKEBDWARS"))()  
-end)
-
-MainSection:NewButton("Aurora", "Needs vape loaded", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/XStormDeveloper/AuroraForRoblox/main/lua", true))()
+MainSection:NewButton("chxrgxrware (soon)", "made by chxrgxr xd", function()
+--me when loadstring soon xd
 end)
     end
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Script Door",
-    Text = "Script Door is now fully executed."
+    Title = "Lunight",
+    Text = "Fully Executed"
 })
