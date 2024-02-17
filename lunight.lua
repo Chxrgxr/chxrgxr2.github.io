@@ -84,9 +84,14 @@ MainSection:NewButton("Fe-Emotes", "FE Emotes", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FEmotesGui/main/FEmotesGui.lua", true))()
 end)
 
-MainSection:NewButton("Rainbow chat", "no not gay chat its just the color", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/gnNx2szq", true))()
+MainSection:NewButton("Auto-Piano", "best auto piano script", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Madness676/3.2Lol/main/AutoPiano3-2.lua", true))()
 end)
+
+MainSection:NewButton("Script Searcher", "Search for Scripts.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
+end)
+
 
 --GAME IDS
 
